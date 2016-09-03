@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5889713FFB05C11AB914D802DB7A7543AF09B863" : 0,
+    "8B6AD95CB9ABB9464DE753D8152CCD70A5C61721" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "222C4026-DD99-4C04-B861-3FADA9A9AC12",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5889713FFB05C11AB914D802DB7A7543AF09B863" : "swift-ui-sandbox\/",
+    "8B6AD95CB9ABB9464DE753D8152CCD70A5C61721" : "Quartet\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Swift-Uikit-Sandbox",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Swift-Uikit-Sandbox.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tkc\/swift-ui-sandbox.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5889713FFB05C11AB914D802DB7A7543AF09B863"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tkc\/Quartet.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8B6AD95CB9ABB9464DE753D8152CCD70A5C61721"
+    }
+  ]
+}
