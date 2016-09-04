@@ -5,7 +5,6 @@ class AutoLayoutCustomCell: UITableViewCell {
     
     let titleFont = UIFont(name: "HelveticaNeue", size: 16)
     let excerptFont = UIFont(name: "HelveticaNeue", size: 16)
-    
     var title = UILabel()
     var excerpt = UILabel()
     
@@ -15,7 +14,6 @@ class AutoLayoutCustomCell: UITableViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setupView() {
@@ -38,17 +36,12 @@ class AutoLayoutCustomCell: UITableViewCell {
         self.excerpt.backgroundColor = AppColors.green
         self.contentView.addSubview(self.excerpt)
         
-        let viewsDict = [
-            "title": self.title,
-            "excerpt": self.excerpt
-        ]
-        
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[title]-(>=0)-|", options: [], metrics: nil, views: viewsDict))
-        
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[excerpt]-|", options: [], metrics: nil, views: viewsDict))
-        
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[title]-20-[excerpt]-30-|", options: [], metrics: nil, views: viewsDict))
+        autolayout()
     }
+    
+}
+
+extension AutoLayoutCustomCell {
     
     func height() -> CGFloat {
         
@@ -65,7 +58,21 @@ class AutoLayoutCustomCell: UITableViewCell {
         let textRect2 = aString2.boundingRectWithSize(CGSizeMake(self.contentView.frame.width + 20, CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, context: nil)
         
         let inset: CGFloat = 20 + 20 + 30
+        
         return textRect1.size.height + textRect2.size.height + inset
     }
-    
+   
+    func autolayout(){
+        
+        let viewsDict = [
+            "title": self.title,
+            "excerpt": self.excerpt
+        ]
+        
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[title]-(>=0)-|", options: [], metrics: nil, views: viewsDict))
+        
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[excerpt]-|", options: [], metrics: nil, views: viewsDict))
+        
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[title]-20-[excerpt]-30-|", options: [], metrics: nil, views: viewsDict))
+    }
 }

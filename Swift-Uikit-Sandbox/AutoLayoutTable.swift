@@ -5,14 +5,15 @@ import SnapKit
 class AutoLayoutTable: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var texts = AutoLayoutModel.all()
-    var tableView = UITableView()
+    var tableView:UITableView = UITableView()
+    var scrollView :UIScrollView = UIScrollView()
+    var header: UILabel = UILabel()
+    var footer: UILabel = UILabel()
+    var contentView: UIView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
-    }
-
-    override func viewWillAppear(animated: Bool) {
     }
     
     override func didReceiveMemoryWarning() {
@@ -22,36 +23,33 @@ class AutoLayoutTable: UIViewController, UITableViewDataSource, UITableViewDeleg
     func setupView() {
         
         self.view.backgroundColor = UIColor.redColor()
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.footer.translatesAutoresizingMaskIntoConstraints = false
+        self.scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.header.translatesAutoresizingMaskIntoConstraints = false
         
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.delegate = self
-        scrollView.backgroundColor = UIColor.whiteColor()
+        self.scrollView.delegate = self
+        self.scrollView.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(scrollView)
         
-        let header: UILabel = UILabel()
-        header.translatesAutoresizingMaskIntoConstraints = false
-        header.text = "header"
-        header.numberOfLines = 1
-        header.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        header.backgroundColor = AppColors.purple
-        scrollView.addSubview(header)
+        self.header.translatesAutoresizingMaskIntoConstraints = false
+        self.header.text = "Header"
+        self.header.numberOfLines = 1
+        self.header.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        self.header.backgroundColor = AppColors.purple
+        self.scrollView.addSubview(header)
         
-        let footer: UILabel = UILabel()
-        footer.translatesAutoresizingMaskIntoConstraints = false
-        footer.text = "footer"
-        footer.numberOfLines = 1
-        footer.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        footer.backgroundColor =  AppColors.purple
-        scrollView.addSubview(footer)
+        self.footer.text = "Footer"
+        self.footer.numberOfLines = 1
+        self.footer.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        self.footer.backgroundColor =  AppColors.purple
+        self.scrollView.addSubview(footer)
         
-        let contentView: UIView = UIView()
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.backgroundColor = UIColor.redColor()
-        scrollView.addSubview(contentView)
+        self.contentView.backgroundColor = UIColor.redColor()
+        self.scrollView.addSubview(contentView)
         
         self.tableView = UITableView()
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.userInteractionEnabled = false
@@ -59,40 +57,11 @@ class AutoLayoutTable: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.reloadData()
         
-        tableView.estimatedRowHeight = 1000
-        tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 500
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.contentView.addSubview(self.tableView)
         
-        contentView.addSubview(self.tableView)
-        
-        let viewsDict: Dictionary = [
-            "mainView": self.view,
-            "header": header,
-            "footer": footer,
-            "scrollView": scrollView,
-            "contentView": contentView,
-            "tableView": tableView
-        ]
-        
-        let metricsDict: Dictionary = [
-            "tableViewHeight": self.tableView.contentSize.height
-        ]
-        
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollView(==mainView)]|", options: [], metrics: nil, views: viewsDict))
-        
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[scrollView]-0-|", options: [], metrics: nil, views: viewsDict))
-        
-        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[header]-20-|", options: [], metrics: nil, views: viewsDict))
-        
-        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[footer]-20-|", options: [], metrics: nil, views: viewsDict))
-        
-        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView(==scrollView)]|", options: [], metrics: nil, views: viewsDict))
-        
-        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-10-[header]-10-[contentView]-10-[footer]-10-|", options: [], metrics: nil, views: viewsDict))
-        
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: [], metrics: nil, views: viewsDict))
-        
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView(>=tableViewHeight)]|", options: [], metrics: metricsDict, views: viewsDict))
-        
+        autolayout()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,7 +84,40 @@ class AutoLayoutTable: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
 }
 
-
+extension AutoLayoutTable {
+    
+    func autolayout(){
+        
+        let viewsDict: Dictionary = [
+            "mainView": self.view,
+            "header": self.header,
+            "footer": self.footer,
+            "scrollView": self.scrollView,
+            "contentView": self.contentView,
+            "tableView": self.tableView
+        ]
+        
+        let metricsDict: Dictionary = [
+            "tableViewHeight": self.tableView.contentSize.height
+        ]
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollView(==mainView)]|", options: [], metrics: nil, views: viewsDict))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[scrollView]-0-|", options: [], metrics: nil, views: viewsDict))
+        
+        self.scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[header]-20-|", options: [], metrics: nil, views: viewsDict))
+        
+        self.scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[footer]-20-|", options: [], metrics: nil, views: viewsDict))
+        
+        self.scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView(==scrollView)]|", options: [], metrics: nil, views: viewsDict))
+        
+        self.scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-10-[header]-10-[contentView]-10-[footer]-10-|", options: [], metrics: nil, views: viewsDict))
+        
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: [], metrics: nil, views: viewsDict))
+        
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView(>=tableViewHeight)]|", options: [], metrics: metricsDict, views: viewsDict))
+    }
+}
 
 
 
