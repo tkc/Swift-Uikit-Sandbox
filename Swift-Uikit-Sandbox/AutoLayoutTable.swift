@@ -11,7 +11,7 @@ class AutoLayoutTable: UIViewController, UITableViewDataSource, UITableViewDeleg
         super.viewDidLoad()
         self.setupView()
     }
-    
+
     override func viewWillAppear(animated: Bool) {
     }
     
@@ -106,15 +106,15 @@ class AutoLayoutTable: UIViewController, UITableViewDataSource, UITableViewDeleg
         cell?.excerpt.text = self.texts[indexPath.row].text
         return cell!
     }
-   
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let cell = AutoLayoutCustomCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
         cell.title.text = self.texts[indexPath.row].title
         cell.excerpt.text = self.texts[indexPath.row].text
         return cell.height()
     }
-    
 }
+
 
 
 

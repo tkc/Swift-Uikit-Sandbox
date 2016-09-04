@@ -34,9 +34,9 @@
 		5A674F9C1D7B2ED50020BEBA /* RootViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A674F9A1D7B2ED50020BEBA /* RootViewCell.swift */; };
 		5A674F9D1D7B2ED50020BEBA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A674F9B1D7B2ED50020BEBA /* RootViewController.swift */; };
 		5A674F9F1D7B2F000020BEBA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A674F9E1D7B2F000020BEBA /* DataSource.swift */; };
-		5A674FAF1D7BC6F00020BEBA /* AutoLayoutCutomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A674FAE1D7BC6F00020BEBA /* AutoLayoutCutomCell.swift */; };
-		5A674FB11D7BC79B0020BEBA /* AutoLayoutTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A674FB01D7BC79B0020BEBA /* AutoLayoutTable.swift */; };
-		5A674FB31D7BC96B0020BEBA /* AutoLayoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A674FB21D7BC96B0020BEBA /* AutoLayoutModel.swift */; };
+		5A674FBF1D7BD0720020BEBA /* AutoLayoutCutomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A674FBC1D7BD0720020BEBA /* AutoLayoutCutomCell.swift */; };
+		5A674FC31D7BD1C00020BEBA /* AutoLayoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A674FC21D7BD1C00020BEBA /* AutoLayoutModel.swift */; };
+		5A674FC51D7BD1E60020BEBA /* AutoLayoutTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A674FC41D7BD1E60020BEBA /* AutoLayoutTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,9 +89,9 @@
 		5A674F9A1D7B2ED50020BEBA /* RootViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewCell.swift; path = "../../swift-ui-sandbox/swift-ui-sandbox/RootViewCell.swift"; sourceTree = "<group>"; };
 		5A674F9B1D7B2ED50020BEBA /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "../../swift-ui-sandbox/swift-ui-sandbox/RootViewController.swift"; sourceTree = "<group>"; };
 		5A674F9E1D7B2F000020BEBA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		5A674FAE1D7BC6F00020BEBA /* AutoLayoutCutomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutCutomCell.swift; sourceTree = "<group>"; };
-		5A674FB01D7BC79B0020BEBA /* AutoLayoutTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutTable.swift; sourceTree = "<group>"; };
-		5A674FB21D7BC96B0020BEBA /* AutoLayoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutModel.swift; sourceTree = "<group>"; };
+		5A674FBC1D7BD0720020BEBA /* AutoLayoutCutomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutCutomCell.swift; sourceTree = "<group>"; };
+		5A674FC21D7BD1C00020BEBA /* AutoLayoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutModel.swift; sourceTree = "<group>"; };
+		5A674FC41D7BD1E60020BEBA /* AutoLayoutTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutTable.swift; sourceTree = "<group>"; };
 		5B7E14A9FA25B1D1FAED0A25 /* Pods_Swift_Uikit_SandboxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_Uikit_SandboxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9035D5D3B51FF9B60AD671CA /* Pods_Swift_Uikit_SandboxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_Uikit_SandboxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF55C0DD4DECE1575537494A /* Pods-Swift-Uikit-SandboxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift-Uikit-SandboxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swift-Uikit-SandboxTests/Pods-Swift-Uikit-SandboxTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 		5A674F861D7B2ECB0020BEBA /* samples */ = {
 			isa = PBXGroup;
 			children = (
-				5A674FA01D7B34980020BEBA /* AutoLayoutCell */,
+				5A674FC61D7BD20E0020BEBA /* AutolayoutTable */,
 				5A674F7A1D7B2ECB0020BEBA /* FontAwesome */,
 				5A674F821D7B2ECB0020BEBA /* ArticleTable */,
 				5A674F851D7B2ECB0020BEBA /* BubbleTransition */,
@@ -264,14 +264,15 @@
 			path = "../../swift-ui-sandbox/swift-ui-sandbox";
 			sourceTree = "<group>";
 		};
-		5A674FA01D7B34980020BEBA /* AutoLayoutCell */ = {
+		5A674FC61D7BD20E0020BEBA /* AutolayoutTable */ = {
 			isa = PBXGroup;
 			children = (
-				5A674FAE1D7BC6F00020BEBA /* AutoLayoutCutomCell.swift */,
-				5A674FB21D7BC96B0020BEBA /* AutoLayoutModel.swift */,
-				5A674FB01D7BC79B0020BEBA /* AutoLayoutTable.swift */,
+				5A674FBC1D7BD0720020BEBA /* AutoLayoutCutomCell.swift */,
+				5A674FC21D7BD1C00020BEBA /* AutoLayoutModel.swift */,
+				5A674FC41D7BD1E60020BEBA /* AutoLayoutTable.swift */,
 			);
-			name = AutoLayoutCell;
+			name = AutolayoutTable;
+			path = "../../Swift-Uikit-Sandbox/Swift-Uikit-Sandbox";
 			sourceTree = "<group>";
 		};
 		C34D6BDA4E0F2157F8D1660B /* Frameworks */ = {
@@ -550,7 +551,6 @@
 				5A674F901D7B2ECB0020BEBA /* ArtickeTable.swift in Sources */,
 				5A674F961D7B2ECB0020BEBA /* BubbleModalViewController.swift in Sources */,
 				5A674F9D1D7B2ED50020BEBA /* RootViewController.swift in Sources */,
-				5A674FAF1D7BC6F00020BEBA /* AutoLayoutCutomCell.swift in Sources */,
 				5A674F8D1D7B2ECB0020BEBA /* FontAwesomeTable.swift in Sources */,
 				5A674F981D7B2ECB0020BEBA /* AppColors.swift in Sources */,
 				5A674F9F1D7B2F000020BEBA /* DataSource.swift in Sources */,
@@ -558,14 +558,15 @@
 				5A674F9C1D7B2ED50020BEBA /* RootViewCell.swift in Sources */,
 				5A674F951D7B2ECB0020BEBA /* BubbleViewController.swift in Sources */,
 				5A674F991D7B2ECB0020BEBA /* Extension.swift in Sources */,
+				5A674FBF1D7BD0720020BEBA /* AutoLayoutCutomCell.swift in Sources */,
 				5A674F911D7B2ECB0020BEBA /* ArticleDetail.swift in Sources */,
 				5A674F8E1D7B2ECB0020BEBA /* Article.swift in Sources */,
 				5A674F8C1D7B2ECB0020BEBA /* FontDataSource.swift in Sources */,
-				5A674FB11D7BC79B0020BEBA /* AutoLayoutTable.swift in Sources */,
 				5A674F921D7B2ECB0020BEBA /* ArtickePotocols.swift in Sources */,
 				5A674F971D7B2ECB0020BEBA /* Labels.swift in Sources */,
+				5A674FC31D7BD1C00020BEBA /* AutoLayoutModel.swift in Sources */,
 				5A674F501D7B2E710020BEBA /* Swift_Uikit_Sandbox.xcdatamodeld in Sources */,
-				5A674FB31D7BC96B0020BEBA /* AutoLayoutModel.swift in Sources */,
+				5A674FC51D7BD1E60020BEBA /* AutoLayoutTable.swift in Sources */,
 				5A674F8F1D7B2ECB0020BEBA /* ArtickeCell.swift in Sources */,
 				5A674F481D7B2E710020BEBA /* AppDelegate.swift in Sources */,
 			);

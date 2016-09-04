@@ -3,7 +3,7 @@ struct AutoLayoutModel {
     
     let title: String
     let text: String
-   
+    
     static func all() -> [AutoLayoutModel] {
         return [
             AutoLayoutModel(title: "Text 1", text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."),
