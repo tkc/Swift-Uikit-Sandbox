@@ -34,9 +34,9 @@ struct SampleDataSource {
             classprefix: NSStringFromClass(FontAwesomeTable.self)
         ),
         Sample(
-            title: "AutoLayout Cell",
+            title: "AutoLayout Table",
             detail: "AutoLayout table and cell",
-            classprefix: NSStringFromClass(AutoLayoutCell.self)
+            classprefix: NSStringFromClass(AutoLayoutTable.self)
         ),
         ]
 }
